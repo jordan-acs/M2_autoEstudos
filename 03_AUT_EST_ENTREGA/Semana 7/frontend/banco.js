@@ -70,10 +70,11 @@ app.post('/habilidadeupdate', urlencodedParser, (req, res) => {
     });
     db.close();
 });
-//Inicia o servidor 
+//Inicia o servidor! 
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
+
 
 
 
