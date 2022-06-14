@@ -2,7 +2,7 @@
 // importa bibliotecas necessárias
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
-// cria servidor no endereço local e determina que a pasta frontend deve ser usada como source
+// cria servidor no endereço local e determina que a pasta frontend deve ser usada como source.
 const app = express();
 const hostname = '127.0.0.1';
 const port = 2004;
