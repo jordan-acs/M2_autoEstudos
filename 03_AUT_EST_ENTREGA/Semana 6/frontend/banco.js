@@ -27,7 +27,7 @@ app.get('/habilidades', (req, res) => {
     });
     db.close();
 });
-// habilidadeINSERT - inserir novos registros na tabela NETWORK;
+// habilidadeINSERT - inserir novos registros na tabela habilidade;
 app.post('/habilidadeinsert', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
