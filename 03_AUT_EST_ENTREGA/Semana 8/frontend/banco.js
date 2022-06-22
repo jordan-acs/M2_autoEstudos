@@ -19,7 +19,7 @@ app.get('/habilidades', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
     var db = new sqlite3.Database(DBPATH);
-  var sql = 'SELECT * FROM habilidades ORDER BY id COLLATE NOCASE'; // ordena por name
+    var sql = 'SELECT * FROM habilidades ORDER BY id COLLATE NOCASE'; // ordena por name
     db.all(sql, [],  (err, rows ) => {
         if (err) {
             throw err;

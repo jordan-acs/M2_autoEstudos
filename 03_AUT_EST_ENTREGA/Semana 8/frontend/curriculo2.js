@@ -1,27 +1,34 @@
-const button = $('button');
+// const button2 = $('button');
 
-const popup = $('.popup-wrapper')
+// const popup = $('.popup-wrapper')
 /*button.addEventListener('click',() => {
     popup.style.display = 'block'
 })*/
-button.click(function() {
+/* button2.click(function() {
     popup.css('display','block');
-});
+}); */
 
 function openYT() {
     window.open("www.google.com")
 }
 
-var getDBResDiv = "#getDB"
-/* Função que faz uma requisição GET */
-function TestGETDB(){
-    var url = "http://127.0.0.1:3060/habilidades";
-    var resposta;
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", url, false);
-    xhttp.send();//A execução do script pára aqui até a requisição retornar do servidor
-    resposta = JSON.parse(xhttp.responseText);
-    $(getDBResDiv).append("<br /><br />" + JSON.stringify(resposta));
-    $(getDBResDiv).append("<br /><br />* Seleção do atributo 'title' do primeiro usuario:<br />" + resposta[0].title);
-    //console.log(xhttp.responseText);
+
+function mostrar(){
+    document.getElementById("resposta").innerHTML = "";
+
+    var resposta=[]
+    $.ajax({
+        url: "http://127.0.0.1:3060/habilidades",
+        type: 'GET',
+        async: false,
+        success: data => {
+          data.forEach(habilidade => {
+        resposta.push(habilidade);
+          });
+        }
+      });
+      resposta.forEach(element => {
+        document.getElementById("resposta").innerHTML += element['descricao'] + "<br>"
+      })
+      
 }
